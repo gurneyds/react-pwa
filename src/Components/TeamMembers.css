@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamMembers {
+  display: flex;
+  flex-direction: column;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}

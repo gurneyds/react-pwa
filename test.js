@@ -1,0 +1,3 @@
+const data = [{ "first": "David", "last": "Gurney", "imageId": 1, "imageName": "davidgurney.jpeg" }, { "first": "Jacob", "last": "Reed", "imageId": 2 }, { "first": "Bob", "last": "Hathaway", "imageId": 3 }, { "first": "Ehab", "last": "Abunuwara", "imageId": 4 }, { "first": "Jacob", "last": "Kenning", "imageId": 5 }, { "first": "Jed", "last": "Roberts", "imageId": 6 }, { "first": "Jerry", "last": "Chadwick", "imageId": 7 }, { "first": "Jonathan", "last": "Bustavson", "imageId": 8 }, { "first": "Michael", "last": "Gray", "imageId": 9 }]
+
+console.log(data)

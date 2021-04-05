@@ -1,0 +1,19 @@
+.selectApplication {
+  margin-bottom: 20px;
+}
+
+.applications {
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.appImage {
+  margin-top: 10px;
+  width: 400px;
+}
