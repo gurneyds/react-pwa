@@ -31,7 +31,8 @@ export default function TeamMembers() {
   }, [])
 
   return <div className="container">
-    <h1>Team Members <OnlineStatus /></h1>
+    <OnlineStatus />
+    <h1>Team Members</h1>
     <div className="teamMembers">
       {people && people.map(p => {
         return <div className="member" key={p.id}>

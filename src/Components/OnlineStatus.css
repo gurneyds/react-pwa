@@ -1,0 +1,9 @@
+.container {
+  font-size: xx-large;
+}
+.online {
+  background-color: green;
+}
+.offline {
+  background-color: red;
+}

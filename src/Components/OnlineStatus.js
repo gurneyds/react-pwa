@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import './OnlineStatus.css'
 
 export default function OnlineStatus() {
-  const [online, setOnline] = useState(() => true)
+  const [statusClassName, setStatusClassName] = useState(() => 'online')
 
   function setOnlineStatus(event) {
     console.log('setting status:', event)
-    setOnline(event.type === 'online')
+    setStatusClassName(event.type) // online or offline
   }
 
   useEffect(() => {
     window.addEventListener('online', setOnlineStatus)
-
     window.addEventListener('offline', setOnlineStatus)
 
     return () => {
@@ -20,5 +20,7 @@ export default function OnlineStatus() {
     }
   }, [])
 
-  return <span style={online ? { backgroundColor: "green" } : { backgroundColor: "red" }}>{`${navigator.onLine ? 'Online' : 'Offline'}`}</span>
+  return <div className="container">
+    <span className={statusClassName}>{`${navigator.onLine ? 'Online' : 'Offline'}`}</span>
+  </div>
 }

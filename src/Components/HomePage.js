@@ -5,7 +5,10 @@ import './HomePage.css'
 
 export default function HomePage() {
   return <div>
-    <h1 className="selectApplication">Select an application. <OnlineStatus /></h1>
+    <OnlineStatus />
+    <h1 className="selectApplication">
+      Select an application.
+    </h1>
     <div className="applications">
       <div className="app">
         <Link to="/team">Team Members</Link>
