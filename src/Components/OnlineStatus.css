@@ -1,9 +1,8 @@
-.container {
-  font-size: xx-large;
-}
 .online {
   background-color: green;
+  font-size: xx-large;
 }
 .offline {
   background-color: red;
+  font-size: xx-large;
 }

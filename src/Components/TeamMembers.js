@@ -15,16 +15,12 @@ export default function TeamMembers() {
         },
       })
       .then(res => {
-        console.log("received raw response")
         return res.json()
       })
       .then(data => {
-        console.log('Setting data:', data)
         setPeople(data)
       })
       .catch(err => console.error(err))
-
-      // console.log("people:", response)
     }
 
     getPeople()

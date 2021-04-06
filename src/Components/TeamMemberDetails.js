@@ -5,7 +5,6 @@ import OnlineStatus from './OnlineStatus'
 export default function TeamMemberDetails() {
   const { id } = useParams()
   const [details, setDetails] = useState()
-  console.log("TeamMemberDetails created with id=", id)
 
   useEffect(() => {
     async function getDetails(id) {
@@ -16,11 +15,9 @@ export default function TeamMemberDetails() {
         },
       })
         .then(res => {
-          console.log("received raw response")
           return res.json()
         })
         .then(data => {
-          console.log('Setting details data:', data)
           setDetails(data)
         })
         .catch(err => console.error(err))

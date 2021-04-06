@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './OnlineStatus.css'
 
 export default function OnlineStatus() {
-  const [statusClassName, setStatusClassName] = useState(() => 'online')
+  const [statusClassName, setStatusClassName] = useState(() => navigator.onLine ? 'online' : 'offline')
 
   function setOnlineStatus(event) {
-    console.log('setting status:', event)
     setStatusClassName(event.type) // online or offline
   }
 
@@ -14,13 +13,10 @@ export default function OnlineStatus() {
     window.addEventListener('offline', setOnlineStatus)
 
     return () => {
-      console.log('unmounting HomePage')
       window.removeEventListener('online', setOnlineStatus)
       window.removeEventListener('offline', setOnlineStatus)
     }
   }, [])
 
-  return <div className="container">
-    <span className={statusClassName}>{`${navigator.onLine ? 'Online' : 'Offline'}`}</span>
-  </div>
+  return <div className={statusClassName}>{`${navigator.onLine ? 'Online' : 'Offline'}`}</div>
 }
