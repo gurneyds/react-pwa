@@ -32,7 +32,7 @@ export default function TeamMembers() {
     <div className="teamMembers">
       {people && people.map(p => {
         return <div className="member" key={p.id}>
-          <Link to={`/team/member/details/${p.id}`} >
+          <Link to={`/team/${p.id}`} >
             {p.first} {p.last}
           </Link>
         </div>

@@ -13,13 +13,16 @@ import TeamMemberDetails from './Components/TeamMemberDetails'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+
+console.log('environment=', process.env.NODE_ENV)
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
         <Route exact path="/start"><App /></Route>
         <Route exact path="/"><HomePage /></Route>
-        <Route exact path="/team/member/details/:id"><TeamMemberDetails /></Route>
+        <Route exact path="/team/:id"><TeamMemberDetails /></Route>
         <Route exact path="/team"><TeamMembers /></Route>
         <Route exact path="/instantTree"><InstantFamilyTree /></Route>
         <Route exact path="/oralGen"><OralGenealogy /></Route>
@@ -35,6 +38,7 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.register();
+// serviceWorkerRegistration.register({swFileName: 'service-worker-team.js', scope: './team'})
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
