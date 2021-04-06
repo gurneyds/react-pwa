@@ -53,7 +53,6 @@ registerRoute(
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   ({ url }) => {
-    console.log('url=', url, ' self.location.origin=', self.location.origin)
     return url.origin === self.location.origin && (url.pathname.endsWith('.png') || url.pathname.endsWith('.jpeg'))
   }, // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
@@ -69,12 +68,30 @@ registerRoute(
 // Cache images from external sources - ie the server on port 8081
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
-  ({ url }) => {
-    console.log('url=', url, ' self.location.origin=', self.location.origin)
-    return url.href.includes('people/image')
+  (info) => {
+    const { url } = info
+    return url.href.includes('/image/')
   }, // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'external-images',
+    plugins: [
+      // Ensure that once this runtime cache reaches a maximum size the
+      // least-recently used images are removed.
+      new ExpirationPlugin({ maxEntries: 50 }),
+    ],
+  })
+);
+
+// Cache JSON data as appropriate
+registerRoute(
+  // Add in any other file extensions or routing criteria as needed.
+  (info) => {
+    const { url } = info
+    console.log('info=', info)
+    return url.pathname.startsWith('/people')
+  }, // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  new StaleWhileRevalidate({
+    cacheName: 'api-data',
     plugins: [
       // Ensure that once this runtime cache reaches a maximum size the
       // least-recently used images are removed.
