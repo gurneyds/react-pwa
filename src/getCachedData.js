@@ -9,3 +9,4 @@ export default async function getCachedData(cacheName, url) {
 
   return await cachedResponse.json();
 }
+

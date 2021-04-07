@@ -38,7 +38,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start-sw": "http-server ./build",
-    "server": "node server.js"
+    "server": "node server.js",
+    "run-prod": "serve -s build",
+    "build-run": "npm run build && npm run run-prod"
   },
   "eslintConfig": {
     "extends": [

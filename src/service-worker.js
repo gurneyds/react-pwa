@@ -108,4 +108,14 @@ self.addEventListener('message', (event) => {
   }
 });
 
-// Any other custom service worker logic can go here.
+// Precache some data right now because we know that it is required for functionality of the site
+self.addEventListener('install', function (event) {
+  event.waitUntil(
+    caches.open('api-data').then(function (cache) {
+      return cache.addAll([
+        'http://localhost:8080/countries'
+      ]);
+    })
+  );
+});
+

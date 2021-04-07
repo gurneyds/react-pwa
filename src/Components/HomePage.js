@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import OnlineStatus from './OnlineStatus'
 import './HomePage.css'
-import getCachedData from './getCachedData'
+import getCachedData from '../getCachedData'
 
 export default function HomePage() {
   const [offlineTeamData, setOfflineTeamData] = useState(() => false)

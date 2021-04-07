@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path')
 const app = express();
 const cors = require('cors')
+const countries = require('./countries.js')
 
 app.use(cors())
 
@@ -81,6 +82,10 @@ const images = [
     imageName: 'tree.jpeg'
   }
 ]
+
+app.get('/countries', function (req, res) {
+  res.send(countries)
+})
 
 app.get('/people', function(req, res) {
   res.send(people)

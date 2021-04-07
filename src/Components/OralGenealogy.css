@@ -1,0 +1,12 @@
+.oralGenContainer > * {
+  margin-bottom: 10px;
+}
+
+.oralGenDetails {
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+.oralGenDetails > div {
+  margin-bottom: 20px;
+}
