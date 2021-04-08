@@ -20,7 +20,6 @@ export default function OralGenealogy() {
           return res.json()
         })
         .then(data => {
-          console.log("countries=", countries)
           setCountries(data)
         })
         .catch(err => console.error(err))
@@ -31,9 +30,6 @@ export default function OralGenealogy() {
   }, [])
 
   function countrySelected(event) {
-    console.log('country event=', event)
-    console.log('country id=', event.target.value)
-
     const selectedCountry = countries.find(country => Number(country.id) === Number(event.target.value))
     if (selectedCountry) {
       setSelectedCountry(selectedCountry)
@@ -41,7 +37,6 @@ export default function OralGenealogy() {
   }
 
   function filterChanged(event) {
-    console.log('fileterChanged event=', event)
     setFilterByRecords(event.target.checked)
   }
 

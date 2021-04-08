@@ -9,9 +9,6 @@ import TeamMemberDetails from './Components/TeamMemberDetails'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
-
-console.log('environment=', process.env.NODE_ENV)
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>

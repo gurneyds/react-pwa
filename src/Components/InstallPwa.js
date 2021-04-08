@@ -6,7 +6,6 @@ export default function InstallPwa() {
 
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', event => {
-      console.log('beforeinstallprompt event=', event)
       // Save for later
       setBeforeInstallEvent(event)
     });
@@ -14,7 +13,6 @@ export default function InstallPwa() {
   }, [])
 
   function install() {
-    console.log('install function called')
     beforeInstallEvent.prompt()
 
     beforeInstallEvent.userChoice.then((choice) => {
