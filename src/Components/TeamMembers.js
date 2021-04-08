@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import './TeamMembers.css'
 import OnlineStatus from './OnlineStatus'
+import BackBtn from './BackBtn'
 
 export default function TeamMembers() {
   const [people, setPeople] = useState()
@@ -28,6 +29,7 @@ export default function TeamMembers() {
 
   return <div className="container">
     <OnlineStatus />
+    <BackBtn />
     <h1>Team Members</h1>
     <div className="teamMembers">
       {people && people.map(p => {

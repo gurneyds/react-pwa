@@ -1,8 +1,13 @@
-.online {
+.onlineStatusContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.onlineStatusContainer[status = 'online'] {
   background-color: green;
   font-size: xx-large;
 }
-.offline {
+.onlineStatusContainer[status = 'offline'] {
   background-color: red;
   font-size: xx-large;
 }

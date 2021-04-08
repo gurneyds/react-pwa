@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import './OnlineStatus.css'
+import useOnlineStatus from './useOnlineStatus'
+import InstallPwa from './InstallPwa'
 import './OnlineStatus.css'
 
 export default function OnlineStatus() {
-  const [statusClassName, setStatusClassName] = useState(() => navigator.onLine ? 'online' : 'offline')
+  const isOnline = useOnlineStatus()
 
-  function setOnlineStatus(event) {
-    setStatusClassName(event.type) // online or offline
-  }
-
-  useEffect(() => {
-    window.addEventListener('online', setOnlineStatus)
-    window.addEventListener('offline', setOnlineStatus)
-
-    return () => {
-      window.removeEventListener('online', setOnlineStatus)
-      window.removeEventListener('offline', setOnlineStatus)
-    }
-  }, [])
-
-  return <div className={statusClassName}>{`${navigator.onLine ? 'Online' : 'Offline'}`}</div>
+  return <div className="onlineStatusContainer" status={isOnline ? 'online' : 'offline'}>
+    {`${isOnline ? 'Online' : 'Offline'}`}
+    <InstallPwa />
+  </div>
 }

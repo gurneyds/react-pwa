@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import OnlineStatus from './OnlineStatus'
+import BackBtn from './BackBtn'
 
 export default function TeamMemberDetails() {
   const { id } = useParams()
@@ -28,6 +29,8 @@ export default function TeamMemberDetails() {
 
   return <div>
     <OnlineStatus />
+    <BackBtn />
+
     <h1>{details?.first} {details?.last}</h1>
     <h2>Role: {details?.role}</h2>
     {details?.id &&

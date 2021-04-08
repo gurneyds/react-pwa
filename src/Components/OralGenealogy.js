@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import OnlineStatus from "./OnlineStatus"
 import "./OralGenealogy.css"
+import BackBtn from './BackBtn'
 
 export default function OralGenealogy() {
   const [countries, setCountries] = useState()
@@ -48,6 +49,8 @@ export default function OralGenealogy() {
 
   return <div className="oralGenContainer">
     <OnlineStatus />
+    <BackBtn />
+
     <h1>Oral Geneology</h1>
 
     {countries && <>

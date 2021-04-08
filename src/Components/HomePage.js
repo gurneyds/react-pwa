@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom'
 import OnlineStatus from './OnlineStatus'
 import './HomePage.css'
 import getCachedData from '../getCachedData'
+import useOnlineStatus from './useOnlineStatus'
 
 export default function HomePage() {
+  const isOnline = useOnlineStatus()
+
   const [offlineTeamData, setOfflineTeamData] = useState(() => false)
 
   useEffect(() => {
     async function getOfflineData() {
-      console.log('navigator.onLine=', navigator.onLine)
-
-      if (!navigator.onLine) {
+      if (!isOnline) {
         console.log('detected offline status - looking to see if we have cache')
         const cachedTeamData = await getCachedData('api-data', 'http://localhost:8080/people')
         console.log('cachedTeamData=', cachedTeamData)
@@ -20,15 +21,7 @@ export default function HomePage() {
     }
 
     getOfflineData()
-
-    window.addEventListener('online', getOfflineData)
-    window.addEventListener('offline', getOfflineData)
-
-    return () => {
-      window.removeEventListener('online', getOfflineData)
-      window.removeEventListener('offline', getOfflineData)
-    }
-  }, [])
+  }, [isOnline])
 
   return <div>
     <OnlineStatus />
