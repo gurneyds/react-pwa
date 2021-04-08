@@ -37,25 +37,13 @@ export default function HomePage() {
     </h1>
     <div className="applications">
       <div className="app">
-        {(navigator.onLine || offlineTeamData) &&
-          <>
-            <Link to="/team">Team Members</Link>
-            <img className="appImage" src="./groupOfPeople.jpeg" alt="Group of people" />
-          </>
-        }
+        {(navigator.onLine || offlineTeamData) && <Link to="/team">Team Members</Link> }
 
-        {!navigator.onLine && !offlineTeamData &&
-          <span>Team data not available offline until it has been loaded 1 time.</span>
-        }
+        {!navigator.onLine && !offlineTeamData && <span>Team data not available offline until it has been loaded 1 time.</span> }
+
+        <img className="appImage" src="./groupOfPeople.jpeg" alt="Group of people" />
       </div>
 
-      <div className="app">
-        <Link to="/instantTree">Instant Tree</Link>
-        <img className="appImage" src="http://localhost:8080/image/1" alt="tree" />
-      </div>
-
-      <div className="app"><Link to="/tree">Tree</Link></div>
-      <div className="app"><Link to="/memories">Memories</Link></div >
       <div className="app"><Link to="/oralGen">Oral Genealogy</Link></div >
     </div>
   </div>
