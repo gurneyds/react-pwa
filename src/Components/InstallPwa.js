@@ -9,7 +9,6 @@ export default function InstallPwa() {
       // Save for later
       setBeforeInstallEvent(event)
     });
-
   }, [])
 
   function install() {
@@ -28,5 +27,5 @@ export default function InstallPwa() {
 
   }
 
-  return (beforeInstallEvent ? <button className="pwaButtonInstall" type="button" onClick={install}>Install for offline use</button> : <span>PWA Already installed</span>)
+  return (beforeInstallEvent ? <button className="pwaButtonInstall" type="button" onClick={install}>Install for offline use</button> : <span>{navigator.serviceWorker.controller ? 'New content available by closing and opening the application again' : 'PWA Already installed'}</span>)
 }
