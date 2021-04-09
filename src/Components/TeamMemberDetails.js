@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import OnlineStatus from './OnlineStatus'
 import BackBtn from './BackBtn'
 
-const apiHost = process.env.API_HOST || 'http://localhost:3000'
+const apiHost = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
 
 export default function TeamMemberDetails() {
   const { id } = useParams()

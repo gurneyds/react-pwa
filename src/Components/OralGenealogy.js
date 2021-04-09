@@ -3,6 +3,8 @@ import OnlineStatus from "./OnlineStatus"
 import "./OralGenealogy.css"
 import BackBtn from './BackBtn'
 
+const apiHost = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
+
 export default function OralGenealogy() {
   const [countries, setCountries] = useState()
   const [selectedCountry, setSelectedCountry] = useState()
@@ -10,7 +12,7 @@ export default function OralGenealogy() {
 
   useEffect(() => {
     async function getCountries() {
-      fetch('http://localhost:8080/api/countries', {
+      fetch(`${apiHost}/api/countries`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

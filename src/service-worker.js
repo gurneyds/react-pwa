@@ -105,7 +105,7 @@ self.addEventListener('message', (event) => {
   }
 });
 
-const apiHost = process.env.API_HOST || 'http://localhost:3000'
+const apiHost = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
 
 // Precache some data right now because we know that it is required for functionality of the site
 self.addEventListener('install', function (event) {

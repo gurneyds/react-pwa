@@ -5,7 +5,9 @@ import './HomePage.css'
 import getCachedData from '../getCachedData'
 import useOnlineStatus from './useOnlineStatus'
 
-const apiHost = process.env.API_HOST || 'http://localhost:3000'
+const apiHost = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
+
+console.log("process.env=", process.env)
 
 export default function HomePage() {
   const isOnline = useOnlineStatus()
