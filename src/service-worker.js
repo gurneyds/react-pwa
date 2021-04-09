@@ -12,6 +12,12 @@ import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
+import {BackgroundSyncPlugin} from 'workbox-background-sync';
+import {NetworkOnly} from 'workbox-strategies';
+
+const bgSyncPlugin = new BackgroundSyncPlugin('myQueueName', {
+  maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
+});
 
 clientsClaim();
 
@@ -85,7 +91,7 @@ registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   (info) => {
     const { url } = info
-    return url.pathname.startsWith('/api/people')
+    return url.pathname.startsWith('/api/people/')
   }, // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'api-data',
@@ -95,6 +101,14 @@ registerRoute(
       new ExpirationPlugin({ maxEntries: 50 }),
     ],
   })
+);
+
+registerRoute(
+  /\/api\/.*\/*./,
+  new NetworkOnly({
+    plugins: [bgSyncPlugin]
+  }),
+  'POST'
 );
 
 // This allows the web app to trigger skipWaiting via
@@ -115,4 +129,3 @@ self.addEventListener('install', function (event) {
     })
   );
 });
-

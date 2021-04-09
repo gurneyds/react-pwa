@@ -5,6 +5,7 @@ const cors = require('cors')
 const countries = require('./countries.js')
 
 app.use(cors())
+app.use(express.json()) 
 
 app.get('/ping', function (req, res) {
   return res.send('pong');
@@ -94,6 +95,7 @@ app.get('/api/people', function(req, res) {
 app.post('/api/people', function(req, res) {
   const incoming = req.body
   console.log('people posted with:', incoming)
+  people.push(incoming);
   res.sendStatus(200);
 })
 
