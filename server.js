@@ -13,65 +13,65 @@ app.get('/ping', function (req, res) {
 const people = [
   {
     first: 'David',
-    last: 'Gurney',
+    last: 'Gray',
     id: 1,
-    imageName: 'davidGurney.jpeg',
-    role: 'Web Developer'
-  },
-  {
-    first: 'Jacob',
-    last: 'Reed',
-    id: 2,
-    imageName: 'jacobReed.jpeg',
+    imageName: 'man1.jpeg',
     role: 'Web Developer'
   },
   {
     first: 'Bob',
-    last: 'Hathaway',
+    last: 'Jones',
+    id: 2,
+    imageName: 'man2.jpeg',
+    role: 'Web Developer'
+  },
+  {
+    first: 'Frank',
+    last: 'Smith',
     id: 3,
-    imageName: 'bobHathaway.jpeg',
+    imageName: 'man3.jpeg',
     role: 'QA Engineer'
   },
   {
-    first: 'Ehab',
-    last: 'Abunuwara',
+    first: 'Bill',
+    last: 'Johnson',
     id: 4,
-    imageName: 'ehabAbunuwara.jpeg',
+    imageName: 'man4.png',
     role: "Project Management"
   },
   {
-    first: 'Jacob',
-    last: 'Kenning',
+    first: 'Henry',
+    last: 'Johanson',
     id: 5,
-    imageName: 'jacobKenning.jpeg',
+    imageName: 'man5.png',
     role: 'Designer'
   },
   {
-    first: 'Jed',
-    last: 'Roberts',
+    first: 'Clint',
+    last: 'Walker',
     id: 6,
-    imageName: 'jedRoberts.jpeg',
+    imageName: 'man6.png',
     role: 'Software Engineer'
   },
   {
-    first: 'Jerry',
-    last: 'Chadwick',
+    first: 'Chad',
+    last: 'Christenson',
     id: 7,
-    imageName: 'jerryChadwick.jpeg',
+    imageName: 'man7.jpeg',
     role: 'Engineering Manager'
   },
   {
-    first: 'Jonathan',
-    last: 'Gustavson',
+    first: 'Gus',
+    last: 'Guliver',
     id: 8,
-    imageName: 'jonathanGustavson.jpeg',
+    imageName: 'man8.jpeg',
     role: 'Product owner'
   },
   {
-    first: 'Michael Nelson',
-    last: 'Gray',
+    first: 'Mike',
+    last: 'Walton',
     id: 9,
-    imageName: 'michaelNelsonGray.jpeg',
+    imageName: 'man9.png',
     role: 'Product owner'
   }
 ]
