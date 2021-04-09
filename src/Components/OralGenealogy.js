@@ -10,7 +10,7 @@ export default function OralGenealogy() {
 
   useEffect(() => {
     async function getCountries() {
-      fetch('http://localhost:8080/countries', {
+      fetch('http://localhost:8080/api/countries', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

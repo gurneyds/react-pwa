@@ -83,21 +83,21 @@ const images = [
   }
 ]
 
-app.get('/countries', function (req, res) {
+app.get('/api/countries', function (req, res) {
   res.send(countries)
 })
 
-app.get('/people', function(req, res) {
+app.get('/api/people', function(req, res) {
   res.send(people)
 })
 
-app.post('/people', function(req, res) {
+app.post('/api/people', function(req, res) {
   const incoming = req.body
   console.log('people posted with:', incoming)
   res.sendStatus(200);
 })
 
-app.get('/people/details/:id', function (req, res) {
+app.get('/api/people/details/:id', function (req, res) {
   const person = people.find(p => String(p.id) === req.params.id)
   if (person) {
     res.send(person)
@@ -107,7 +107,7 @@ app.get('/people/details/:id', function (req, res) {
   }
 })
 
-app.get('/people/image/:id', (req, res, next) => {
+app.get('/api/people/image/:id', (req, res, next) => {
   const person = people.find(p => String(p.id) === req.params.id)
 
   if (person) {
@@ -126,7 +126,7 @@ app.get('/people/image/:id', (req, res, next) => {
   }
 })
 
-app.get('/image/:id', (req, res, next) => {
+app.get('/api/image/:id', (req, res, next) => {
   const image = images.find(p => String(p.id) === req.params.id)
 
   if (image) {

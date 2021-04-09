@@ -68,7 +68,7 @@ registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   (info) => {
     const { url } = info
-    return url.href.includes('/image/')
+    return url.href.includes('/api/image/')
   }, // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'external-images',
@@ -85,7 +85,7 @@ registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   (info) => {
     const { url } = info
-    return url.pathname.startsWith('/people')
+    return url.pathname.startsWith('/api/people')
   }, // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'api-data',
@@ -110,7 +110,7 @@ self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open('api-data').then(function (cache) {
       return cache.addAll([
-        'http://localhost:8080/countries'
+        'http://localhost:8080/api/countries'
       ]);
     })
   );

@@ -9,7 +9,7 @@ export default function TeamMemberDetails() {
 
   useEffect(() => {
     async function getDetails(id) {
-      fetch(`http://localhost:8080/people/details/${id}`, {
+      fetch(`http://localhost:8080/api/people/details/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export default function TeamMemberDetails() {
     <h1>{details?.first} {details?.last}</h1>
     <h2>Role: {details?.role}</h2>
     {details?.id &&
-      <img src={`http://localhost:8080/people/image/${details?.id}`} alt="Team Member" />
+      <img src={`http://localhost:8080/api/people/image/${details?.id}`} alt="Team Member" />
     }
   </div>
 }

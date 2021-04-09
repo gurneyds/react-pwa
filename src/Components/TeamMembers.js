@@ -9,7 +9,7 @@ export default function TeamMembers() {
 
   useEffect(() => {
     async function getPeople() {
-      fetch('http://localhost:8080/people', {
+      fetch('http://localhost:8080/api/people', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

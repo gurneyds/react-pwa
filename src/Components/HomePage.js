@@ -13,7 +13,7 @@ export default function HomePage() {
   useEffect(() => {
     async function getOfflineData() {
       if (!isOnline) {
-        const cachedTeamData = await getCachedData('api-data', 'http://localhost:8080/people')
+        const cachedTeamData = await getCachedData('api-data', 'http://localhost:8080/api/people')
         setOfflineTeamData(cachedTeamData)
       }
     }
