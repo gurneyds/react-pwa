@@ -5,6 +5,8 @@ import './HomePage.css'
 import getCachedData from '../getCachedData'
 import useOnlineStatus from './useOnlineStatus'
 
+const apiHost = process.env.API_HOST || 'http://localhost:3000'
+
 export default function HomePage() {
   const isOnline = useOnlineStatus()
 
@@ -13,7 +15,7 @@ export default function HomePage() {
   useEffect(() => {
     async function getOfflineData() {
       if (!isOnline) {
-        const cachedTeamData = await getCachedData('api-data', 'http://localhost:8080/api/people')
+        const cachedTeamData = await getCachedData('api-data', `${apiHost}/api/people`)
         setOfflineTeamData(cachedTeamData)
       }
     }

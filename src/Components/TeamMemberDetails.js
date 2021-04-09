@@ -3,13 +3,15 @@ import { useParams } from 'react-router-dom'
 import OnlineStatus from './OnlineStatus'
 import BackBtn from './BackBtn'
 
+const apiHost = process.env.API_HOST || 'http://localhost:3000'
+
 export default function TeamMemberDetails() {
   const { id } = useParams()
   const [details, setDetails] = useState()
 
   useEffect(() => {
     async function getDetails(id) {
-      fetch(`http://localhost:8080/api/people/details/${id}`, {
+      fetch(`${apiHost}/api/people/details/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -34,7 +36,7 @@ export default function TeamMemberDetails() {
     <h1>{details?.first} {details?.last}</h1>
     <h2>Role: {details?.role}</h2>
     {details?.id &&
-      <img src={`http://localhost:8080/api/people/image/${details?.id}`} alt="Team Member" />
+      <img src={`${apiHost}/api/people/image/${details?.id}`} alt="Team Member" />
     }
   </div>
 }

@@ -93,7 +93,7 @@ app.get('/api/people', function(req, res) {
 
 app.post('/api/people', function(req, res) {
   const incoming = req.body
-  console.log('people posted with:', incoming)
+  console.log('people posted with data:', incoming)
   res.sendStatus(200);
 })
 

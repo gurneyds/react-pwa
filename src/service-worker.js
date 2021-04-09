@@ -105,12 +105,14 @@ self.addEventListener('message', (event) => {
   }
 });
 
+const apiHost = process.env.API_HOST || 'http://localhost:3000'
+
 // Precache some data right now because we know that it is required for functionality of the site
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open('api-data').then(function (cache) {
       return cache.addAll([
-        'http://localhost:8080/api/countries'
+        `${apiHost}/api/countries`
       ]);
     })
   );

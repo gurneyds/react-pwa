@@ -4,12 +4,14 @@ import './TeamMembers.css'
 import OnlineStatus from './OnlineStatus'
 import BackBtn from './BackBtn'
 
+const apiHost = process.env.API_HOST || 'http://localhost:3000'
+
 export default function TeamMembers() {
   const [people, setPeople] = useState()
 
   useEffect(() => {
     async function getPeople() {
-      fetch('http://localhost:8080/api/people', {
+      fetch(`${apiHost}/api/people`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
