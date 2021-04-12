@@ -21,5 +21,31 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#00ff00",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "shortcuts": [
+    {
+      "name": "PWA shortcut",
+      "short_name": "PWA Test",
+      "description": "Test shortcut for the PWA demo app",
+      "url": "/",
+      "icons": [
+        {
+          "src": "savannaTree192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "PWA Oral shortcut",
+      "short_name": "PWA Oral Test",
+      "description": "Test shortcut for the PWA oral demo app",
+      "url": "/oralGen",
+      "icons": [
+        {
+          "src": "savannaTree192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
