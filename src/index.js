@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './index.css';
-import HomePage from './Components/HomePage'
-import OralGenealogy from './Components/OralGenealogy'
-import TeamMembers from './Components/TeamMembers'
-import TeamMemberDetails from './Components/TeamMemberDetails'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+
+const HomePage = lazy(() => import('./Components/HomePage'))
+const OralGenealogy = lazy(() => import('./Components/OralGenealogy'))
+const TeamMembers = lazy(() => import('./Components/TeamMembers'))
+const TeamMemberDetails = lazy(() => import('./Components/TeamMemberDetails'))
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Switch>
-        <Route exact path="/"><HomePage /></Route>
-        <Route exact path="/team/:id"><TeamMemberDetails /></Route>
-        <Route exact path="/team"><TeamMembers /></Route>
-        <Route exact path="/oralGen"><OralGenealogy /></Route>
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/"><HomePage /></Route>
+          <Route exact path="/team/:id"><TeamMemberDetails /></Route>
+          <Route exact path="/team"><TeamMembers /></Route>
+          <Route exact path="/oralGen"><OralGenealogy /></Route>
+        </Switch>
+      </Suspense>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
